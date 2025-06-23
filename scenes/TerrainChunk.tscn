@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://byd07frmf67ct" path="res://scenes/props/Snowman.tscn" id="3_a21ai"]
 [ext_resource type="PackedScene" uid="uid://ck11lh1e0vf1x" path="res://scenes/props/Snowmaker.tscn" id="4_34gou"]
 [ext_resource type="PackedScene" uid="uid://b46nxhi5dr2wi" path="res://scenes/props/Fence3.tscn" id="5_dhhup"]
+[ext_resource type="PackedScene" uid="uid://bef0oita52pj6" path="res://scenes/props/Fence2.tscn" id="6_dhhup"]
 [ext_resource type="PackedScene" uid="uid://diw084wag1660" path="res://scenes/props/Fence1.tscn" id="7_ujd5a"]
 [ext_resource type="PackedScene" uid="uid://c2o8xqhj2qtj1" path="res://scenes/props/Flag5.tscn" id="8_rpluw"]
 [ext_resource type="PackedScene" uid="uid://b7qc6jtathao7" path="res://scenes/props/Flag4.tscn" id="9_wg48j"]

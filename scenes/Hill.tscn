@@ -1,8 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsqhw71hvla0j"]
+[gd_scene load_steps=9 format=3 uid="uid://bsqhw71hvla0j"]
 
 [ext_resource type="Script" uid="uid://73jvafemvb6q" path="res://scripts/hill_manager.gd" id="1_mmd5o"]
 [ext_resource type="PackedScene" uid="uid://da3r8egurnvdb" path="res://scenes/TerrainChunk.tscn" id="2_durle"]
 [ext_resource type="Script" uid="uid://ce0esdu53yin" path="res://scripts/flycam.gd" id="3_wu28h"]
+
+[sub_resource type="Curve" id="Curve_wu28h"]
+_data = [Vector2(0.0118044, 0.482891), 0.0, 0.0, 0, 0, Vector2(0.974705, 0.972198), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_ug7ey"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.495865), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_1kr3l"]
+_data = [Vector2(0, 0.347591), 0.0, 0.0, 0, 0, Vector2(1, 0.63302), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_8r5dw"]
+_data = [Vector2(0.00168634, 0.267893), 0.0, 0.0, 0, 0, Vector2(0.996627, 0.33091), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="Environment" id="Environment_wu28h"]
 background_mode = 2
@@ -13,6 +29,11 @@ ambient_light_color = Color(1, 1, 1, 1)
 script = ExtResource("1_mmd5o")
 angle = 30.0
 chunk_scene = ExtResource("2_durle")
+max_obstacles_per_chunk = 15
+obstacle_base_scale = SubResource("Curve_wu28h")
+obstacle_scale_variance = SubResource("Curve_ug7ey")
+obstacle_density = SubResource("Curve_1kr3l")
+obstacle_density_variance = SubResource("Curve_8r5dw")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 0)

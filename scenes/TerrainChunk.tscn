@@ -9,21 +9,18 @@
 [sub_resource type="Resource" id="Resource_ujd5a"]
 script = ExtResource("2_34gou")
 probability_weight = 5
-scale_range = 1.0
 scene = ExtResource("3_a21ai")
 metadata/_custom_type_script = "uid://d1gj46hswg3pu"
 
 [sub_resource type="Resource" id="Resource_rpluw"]
 script = ExtResource("2_34gou")
 probability_weight = 4
-scale_range = 2.0
 scene = ExtResource("4_34gou")
 metadata/_custom_type_script = "uid://d1gj46hswg3pu"
 
 [sub_resource type="Resource" id="Resource_6ui3r"]
 script = ExtResource("2_34gou")
 probability_weight = 5
-scale_range = 2.0
 scene = ExtResource("5_dhhup")
 metadata/_custom_type_script = "uid://d1gj46hswg3pu"
 

@@ -43,7 +43,7 @@ metadata/_edit_group_ = true
 shape = SubResource("ConcavePolygonShape3D_vhi4e")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="MeshInstance3D"]
-transform = Transform3D(0.1, 7.00412e-13, -3.63798e-12, 7.00412e-13, 0.1, -1.13687e-13, 2.72848e-12, 1.7053e-13, 0.1, -7.84575e-06, 0.140076, 1.04318e-06)
+transform = Transform3D(0.1, -7.00412e-13, -2.72848e-12, 7.00412e-13, 0.1, -1.7053e-13, 2.72848e-12, 1.7053e-13, 0.1, -7.84575e-06, 0.140076, 1.04318e-06)
 script = ExtResource("1_gdgoh")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D/CharacterBody3D"]

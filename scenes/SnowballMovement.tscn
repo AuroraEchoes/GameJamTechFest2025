@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c8ml6w5kbgunx"]
+[gd_scene load_steps=9 format=3 uid="uid://c3rcoolierc3h"]
 
 [ext_resource type="Script" uid="uid://cahcujubk8aw2" path="res://scripts/snowballMovement.gd" id="1_gdgoh"]
 
@@ -33,7 +33,7 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(10, 0.000560065, 0.00108323, -0.000560073, 10, 7.44719e-05, -0.00108323, -7.45326e-05, 10, 0, 0, 0)
+transform = Transform3D(10, 0.000560065, 0.00108323, -0.000560073, 10, 7.44719e-05, -0.00108323, -7.45326e-05, 10, 0, -0.00435281, 0)
 mesh = SubResource("PlaneMesh_vhi4e")
 metadata/_edit_group_ = true
 

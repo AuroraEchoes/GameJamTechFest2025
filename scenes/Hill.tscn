@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://73jvafemvb6q" path="res://scripts/hill_manager.gd" id="1_mmd5o"]
 [ext_resource type="PackedScene" uid="uid://da3r8egurnvdb" path="res://scenes/TerrainChunk.tscn" id="2_durle"]
-[ext_resource type="Script" uid="uid://ce0esdu53yin" path="res://scripts/flycam.gd" id="3_wu28h"]
+[ext_resource type="PackedScene" uid="uid://cr8tcld135icl" path="res://scenes/Snowball.tscn" id="3_wu28h"]
 
 [sub_resource type="Curve" id="Curve_wu28h"]
 _data = [Vector2(0.0118044, 0.482891), 0.0, 0.0, 0, 0, Vector2(0.974705, 0.972198), 0.0, 0.0, 0, 0]
@@ -27,7 +27,7 @@ ambient_light_color = Color(1, 1, 1, 1)
 
 [node name="Hill" type="Node3D"]
 script = ExtResource("1_mmd5o")
-angle = 30.0
+angle = 45.0
 chunk_scene = ExtResource("2_durle")
 min_obstacles_per_chunk = 2
 max_obstacles_per_chunk = 10
@@ -37,9 +37,8 @@ obstacle_scale_variance = SubResource("Curve_ug7ey")
 obstacle_density = SubResource("Curve_1kr3l")
 obstacle_density_variance = SubResource("Curve_8r5dw")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 0)
-script = ExtResource("3_wu28h")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_wu28h")
+
+[node name="Snowball" parent="." instance=ExtResource("3_wu28h")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 1, 0)

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cunyuritw2mwy"]
+
+[ext_resource type="ArrayMesh" uid="uid://by75cet1vn414" path="res://assets/models/SM_Generic_TreeStump_01.obj" id="1_tidng"]
+[ext_resource type="Texture2D" uid="uid://bm8sllbdn7opy" path="res://assets/textures/PolygonFarm_Texture_01_A.png" id="2_yiaao"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_thwov"]
+albedo_color = Color(0.487491, 0.297169, 0.208908, 1)
+albedo_texture = ExtResource("2_yiaao")
+
+[node name="TreeStump" type="Node3D"]
+
+[node name="SmGenericTreeStump01" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+mesh = ExtResource("1_tidng")
+surface_material_override/0 = SubResource("StandardMaterial3D_thwov")

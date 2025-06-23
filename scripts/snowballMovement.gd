@@ -1,48 +1,36 @@
-extends CharacterBody3D
+extends RigidBody3D
 
 
-const SPEED = 5.0
+const SPEED = 10.0
 const JUMP_VELOCITY = 4.5
 var time := 0.0
 var sizeNotified = false
+@onready var base_size: Vector3 = scale
+@export var max_size_factor: float = 3.0
+@onready var mesh: MeshInstance3D = $"MeshInstance3D"
+@onready var collision_shape: CollisionShape3D = $"CollisionShape3D"
 
 func maxSizeReached() ->  void:
 	print("Max Size Reached!!")
 
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+	var input_dir := Input.get_axis("move_left", "move_right")
+	if input_dir:
+		apply_force(Vector3(-input_dir * SPEED, 0, 0))
 		
+	time += sqrt(delta) / 12
+	var scaled = time
 	
-	time += delta 
-	var scaled = sqrt(time)/12
-	
-	if scaled >= 0.3 and not sizeNotified:
+	if scaled >= (base_size.x * max_size_factor) and not sizeNotified:
 		maxSizeReached()
 		sizeNotified = true
 	
-	scaled = min(scaled, 0.3)
+	var clampedScale: Vector3 = Vector3(
+		min(scaled, max_size_factor * base_size.x),
+		min(scaled, max_size_factor * base_size.y),
+		min(scaled, max_size_factor * base_size.z)
+	)
 
-	scale = Vector3(scaled, scaled, scaled)
-
-
-
-	move_and_slide()
-	
+	mesh.scale = clampedScale
+	collision_shape.scale = clampedScale

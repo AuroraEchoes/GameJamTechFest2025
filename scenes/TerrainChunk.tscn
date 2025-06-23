@@ -1,10 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://da3r8egurnvdb"]
+[gd_scene load_steps=30 format=3 uid="uid://da3r8egurnvdb"]
 
 [ext_resource type="Script" uid="uid://rbryramdaow7" path="res://scripts/terrain_chunk.gd" id="1_ee0uk"]
 [ext_resource type="Script" uid="uid://d1gj46hswg3pu" path="res://scripts/terrain_obstacle.gd" id="2_34gou"]
 [ext_resource type="PackedScene" uid="uid://byd07frmf67ct" path="res://scenes/props/Snowman.tscn" id="3_a21ai"]
 [ext_resource type="PackedScene" uid="uid://ck11lh1e0vf1x" path="res://scenes/props/Snowmaker.tscn" id="4_34gou"]
 [ext_resource type="PackedScene" uid="uid://b46nxhi5dr2wi" path="res://scenes/props/Fence3.tscn" id="5_dhhup"]
+[ext_resource type="PackedScene" uid="uid://bef0oita52pj6" path="res://scenes/props/Fence2.tscn" id="6_dhhup"]
+[ext_resource type="PackedScene" uid="uid://diw084wag1660" path="res://scenes/props/Fence1.tscn" id="7_ujd5a"]
+[ext_resource type="PackedScene" uid="uid://c2o8xqhj2qtj1" path="res://scenes/props/Flag5.tscn" id="8_rpluw"]
+[ext_resource type="PackedScene" uid="uid://b7qc6jtathao7" path="res://scenes/props/Flag4.tscn" id="9_wg48j"]
+[ext_resource type="PackedScene" uid="uid://bwd8gwok4a31i" path="res://scenes/props/Flag3.tscn" id="10_1okqb"]
+[ext_resource type="PackedScene" uid="uid://uwc8al12rwaa" path="res://scenes/props/Flag2.tscn" id="11_tq175"]
+[ext_resource type="PackedScene" uid="uid://b1gpimmsvyshc" path="res://scenes/props/Flag1.tscn" id="12_sdmwy"]
+[ext_resource type="PackedScene" uid="uid://bdyct4irwtvhr" path="res://scenes/props/Tree.tscn" id="13_sdmwy"]
+[ext_resource type="PackedScene" uid="uid://c2g4tut1rp3h5" path="res://scenes/props/TreeDead.tscn" id="14_aat7g"]
+[ext_resource type="PackedScene" uid="uid://cunyuritw2mwy" path="res://scenes/props/TreeStump.tscn" id="15_qr1hn"]
 
 [sub_resource type="Resource" id="Resource_ujd5a"]
 script = ExtResource("2_34gou")
@@ -14,22 +24,82 @@ metadata/_custom_type_script = "uid://d1gj46hswg3pu"
 
 [sub_resource type="Resource" id="Resource_rpluw"]
 script = ExtResource("2_34gou")
-probability_weight = 4
+probability_weight = 3
 scene = ExtResource("4_34gou")
 metadata/_custom_type_script = "uid://d1gj46hswg3pu"
 
 [sub_resource type="Resource" id="Resource_6ui3r"]
 script = ExtResource("2_34gou")
-probability_weight = 5
+probability_weight = 1
 scene = ExtResource("5_dhhup")
 metadata/_custom_type_script = "uid://d1gj46hswg3pu"
 
+[sub_resource type="Resource" id="Resource_34gou"]
+script = ExtResource("2_34gou")
+probability_weight = 2
+scene = ExtResource("6_dhhup")
+metadata/_custom_type_script = "uid://d1gj46hswg3pu"
+
+[sub_resource type="Resource" id="Resource_a21ai"]
+script = ExtResource("2_34gou")
+probability_weight = 2
+scene = ExtResource("7_ujd5a")
+metadata/_custom_type_script = "uid://d1gj46hswg3pu"
+
+[sub_resource type="Resource" id="Resource_v0rx5"]
+script = ExtResource("2_34gou")
+probability_weight = 1
+scene = ExtResource("8_rpluw")
+metadata/_custom_type_script = "uid://d1gj46hswg3pu"
+
+[sub_resource type="Resource" id="Resource_dhhup"]
+script = ExtResource("2_34gou")
+probability_weight = 1
+scene = ExtResource("9_wg48j")
+metadata/_custom_type_script = "uid://d1gj46hswg3pu"
+
+[sub_resource type="Resource" id="Resource_wg48j"]
+script = ExtResource("2_34gou")
+probability_weight = 1
+scene = ExtResource("10_1okqb")
+metadata/_custom_type_script = "uid://d1gj46hswg3pu"
+
+[sub_resource type="Resource" id="Resource_aat7g"]
+script = ExtResource("2_34gou")
+probability_weight = 1
+scene = ExtResource("11_tq175")
+metadata/_custom_type_script = "uid://d1gj46hswg3pu"
+
+[sub_resource type="Resource" id="Resource_qr1hn"]
+script = ExtResource("2_34gou")
+probability_weight = 1
+scene = ExtResource("12_sdmwy")
+metadata/_custom_type_script = "uid://d1gj46hswg3pu"
+
+[sub_resource type="Resource" id="Resource_wfuk4"]
+script = ExtResource("2_34gou")
+probability_weight = 4
+scene = ExtResource("13_sdmwy")
+metadata/_custom_type_script = "uid://d1gj46hswg3pu"
+
+[sub_resource type="Resource" id="Resource_ina8b"]
+script = ExtResource("2_34gou")
+probability_weight = 3
+scene = ExtResource("14_aat7g")
+metadata/_custom_type_script = "uid://d1gj46hswg3pu"
+
+[sub_resource type="Resource" id="Resource_2vs8l"]
+script = ExtResource("2_34gou")
+probability_weight = 2
+scene = ExtResource("15_qr1hn")
+metadata/_custom_type_script = "uid://d1gj46hswg3pu"
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_hdqcb"]
-size = Vector2(30, 30)
+size = Vector2(50, 50)
 
 [node name="TerrainChunk" type="Node3D"]
 script = ExtResource("1_ee0uk")
-obstacles = Array[ExtResource("2_34gou")]([SubResource("Resource_ujd5a"), SubResource("Resource_rpluw"), SubResource("Resource_6ui3r")])
+obstacles = Array[ExtResource("2_34gou")]([SubResource("Resource_ujd5a"), SubResource("Resource_rpluw"), SubResource("Resource_6ui3r"), SubResource("Resource_34gou"), SubResource("Resource_a21ai"), SubResource("Resource_v0rx5"), SubResource("Resource_dhhup"), SubResource("Resource_wg48j"), SubResource("Resource_aat7g"), SubResource("Resource_qr1hn"), SubResource("Resource_wfuk4"), SubResource("Resource_ina8b"), SubResource("Resource_2vs8l")])
 
 [node name="Terrain" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_hdqcb")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdyct4irwtvhr"]
+
+[ext_resource type="ArrayMesh" uid="uid://bx3s7e1vla801" path="res://assets/models/SM_Generic_Tree_02.obj" id="1_qt0gd"]
+[ext_resource type="Texture2D" uid="uid://bm8sllbdn7opy" path="res://assets/textures/PolygonFarm_Texture_01_A.png" id="2_5x4hs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4d81"]
+albedo_color = Color(0.428941, 0.486679, 0.2105, 1)
+albedo_texture = ExtResource("2_5x4hs")
+
+[node name="Tree" type="Node3D"]
+
+[node name="SmGenericTree02" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+mesh = ExtResource("1_qt0gd")
+surface_material_override/0 = SubResource("StandardMaterial3D_q4d81")

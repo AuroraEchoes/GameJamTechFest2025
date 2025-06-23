@@ -19,7 +19,7 @@ func generate(hill_params: HillManager) -> void:
 	var obst_variance_sample = hill_params.obstacle_density_variance.sample(completion)
 	var obst_variance = randf_range(-obst_variance_sample, obst_variance_sample)
 	var obst_density = obst_density_sample + obst_variance
-	var num_obstacles = lerpf(hill_params.min_obstacles_per_chunk, hill_params.max_obstacles_per_chunk, obst_density)
+	var num_obstacles = int(lerpf(hill_params.min_obstacles_per_chunk, hill_params.max_obstacles_per_chunk, obst_density))
 	for i in range(num_obstacles):
 		var scale_base_sample = hill_params.obstacle_base_scale.sample(completion)
 		var scale_variance_sample = hill_params.obstacle_scale_variance.sample(completion)
@@ -44,19 +44,7 @@ func generate(hill_params: HillManager) -> void:
 		scene.position = spawn_pos
 		scene.scale = Vector3(obst_scale, obst_scale, obst_scale)
 		add_child(scene)
-		
-	for i in range(10):
-		var obstacle = select_obstacle()
-		# TODO: check for overlapping
-		var spawn_pos = Vector3(
-			randf_range(-terrain_size.x / 2, terrain_size.x / 2),
-			0,
-			randf_range(-terrain_size.y / 2, terrain_size.y / 2)
-		)
-		var scene = obstacle.scene.instantiate() as Node3D
-		scene.position = spawn_pos
-		add_child(scene)
-
+	
 # Select an obstacle from the pool (each has an integer probability)
 func select_obstacle() -> TerrainObstacle:
 	var probability_total: int = 0

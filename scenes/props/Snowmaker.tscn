@@ -8,7 +8,7 @@ albedo_texture = ExtResource("2_8umro")
 
 [node name="Snowmaker" type="Node3D"]
 
-[node name="SmPropSnowMaker01" type="MeshInstance3D" parent="."]
+[node name="SmPropFlag03" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 mesh = ExtResource("1_yhuf5")
 surface_material_override/0 = SubResource("StandardMaterial3D_lei2t")

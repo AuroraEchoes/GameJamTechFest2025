@@ -13,7 +13,7 @@ _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.495865), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_1kr3l"]
-_data = [Vector2(0, 0.347591), 0.0, 0.0, 0, 0, Vector2(1, 0.63302), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.035059), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_8r5dw"]
@@ -29,7 +29,9 @@ ambient_light_color = Color(1, 1, 1, 1)
 script = ExtResource("1_mmd5o")
 angle = 30.0
 chunk_scene = ExtResource("2_durle")
-max_obstacles_per_chunk = 15
+min_obstacles_per_chunk = 2
+max_obstacles_per_chunk = 10
+chunks_to_scale_to_max = 40
 obstacle_base_scale = SubResource("Curve_wu28h")
 obstacle_scale_variance = SubResource("Curve_ug7ey")
 obstacle_density = SubResource("Curve_1kr3l")

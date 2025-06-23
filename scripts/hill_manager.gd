@@ -34,7 +34,6 @@ func spawn_chunk() -> void:
 		var prev_chunk: TerrainChunk = chunks.back()
 		var z_diff = prev_chunk.terrain_size.y / 2
 		var y_diff = -z_diff * tan(deg_to_rad(angle))
-		print("z_diff: " + str(z_diff) + " y_diff: " + str(y_diff))
 		var next_chunk_pos = prev_chunk.position + Vector3(0, y_diff, z_diff)
 		chunk.position = next_chunk_pos
 	chunks.push_back(chunk)

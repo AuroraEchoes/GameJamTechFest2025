@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://d1gj46hswg3pu" path="res://scripts/terrain_obstacle.gd" id="2_34gou"]
 [ext_resource type="PackedScene" uid="uid://byd07frmf67ct" path="res://scenes/props/Snowman.tscn" id="3_a21ai"]
 [ext_resource type="PackedScene" uid="uid://ck11lh1e0vf1x" path="res://scenes/props/Snowmaker.tscn" id="4_34gou"]
-[ext_resource type="PackedScene" uid="uid://b46nxhi5dr2wi" path="res://scenes/props/Fence.tscn" id="5_dhhup"]
+[ext_resource type="PackedScene" uid="uid://b46nxhi5dr2wi" path="res://scenes/props/Fence3.tscn" id="5_dhhup"]
 
 [sub_resource type="Resource" id="Resource_ujd5a"]
 script = ExtResource("2_34gou")

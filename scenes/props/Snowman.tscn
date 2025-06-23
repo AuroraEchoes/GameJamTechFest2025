@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://byd07frmf67ct"]
+[gd_scene load_steps=8 format=3 uid="uid://byd07frmf67ct"]
 
 [ext_resource type="Texture2D" uid="uid://kha7th1awwx6" path="res://assets/textures/PolygonSnow_Texture_01_B.png" id="1_8nwud"]
+[ext_resource type="Script" uid="uid://kxojtn4uepnf" path="res://scripts/obstacle.gd" id="1_fp03d"]
 [ext_resource type="ArrayMesh" uid="uid://c6tdkhyqbdvcl" path="res://assets/models/SM_Prop_Snowman.obj" id="2_8rrpe"]
 [ext_resource type="Texture2D" uid="uid://qlrwv2akbhid" path="res://assets/textures/PolygonSnow_Texture_01_A.png" id="3_ma8s1"]
 
@@ -10,10 +11,25 @@ albedo_texture = ExtResource("1_8nwud")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fjeo3"]
 albedo_texture = ExtResource("3_ma8s1")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_oqtn1"]
+size = Vector3(1.11497, 0.133242, 0.986299)
+
 [node name="Snowman" type="Node3D"]
+script = ExtResource("1_fp03d")
 
 [node name="SmPropSnowman" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+transform = Transform3D(-0.01, 0, -8.74228e-10, 0, 0.01, 0, 8.74228e-10, 0, -0.01, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_up3e0")
 mesh = ExtResource("2_8rrpe")
 surface_material_override/0 = SubResource("StandardMaterial3D_fjeo3")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249479, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.340272, 0)
+shape = SubResource("BoxShape3D_oqtn1")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0105338, -0.275606, -0.0522314)
+shape = SubResource("BoxShape3D_oqtn1")

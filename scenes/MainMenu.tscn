@@ -1,0 +1,111 @@
+[gd_scene load_steps=12 format=3 uid="uid://wnpjlxkryraa"]
+
+[ext_resource type="Script" uid="uid://fnihjnm28upm" path="res://scripts/ui/main_menu_buttons.gd" id="1_826wr"]
+[ext_resource type="Script" uid="uid://7nyo426p3x5" path="res://scripts/ui/main_menu_bg_scroll.gd" id="1_yqorp"]
+[ext_resource type="FontFile" uid="uid://bepqu1vl3b4b5" path="res://assets/fonts/PublicSans-BoldItalic.ttf" id="2_2wh52"]
+[ext_resource type="PackedScene" uid="uid://bsqhw71hvla0j" path="res://scenes/Hill.tscn" id="2_ucygd"]
+[ext_resource type="PackedScene" uid="uid://ccauthuq6s0mp" path="res://scenes/TutorialManager.tscn" id="3_mipys"]
+[ext_resource type="FontFile" uid="uid://plf8r8anhu6l" path="res://assets/fonts/RubikWetPaint-Regular.ttf" id="3_ow34m"]
+[ext_resource type="Script" uid="uid://dnp1m8y8d2g6a" path="res://scripts/ui/snowball_text_animation.gd" id="4_ow34m"]
+[ext_resource type="FontFile" uid="uid://b2p5sdul1gprd" path="res://assets/fonts/PublicSans-Bold.ttf" id="5_l72w3"]
+
+[sub_resource type="Gradient" id="Gradient_0ykhv"]
+colors = PackedColorArray(0.471361, 0.637078, 0.72163, 1, 0.690644, 0.705999, 0.723569, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2wh52"]
+noise_type = 4
+fractal_type = 2
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ow34m"]
+color_ramp = SubResource("Gradient_0ykhv")
+noise = SubResource("FastNoiseLite_2wh52")
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("tutorial_button", "play_button", "quit_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_826wr")
+tutorial_button = NodePath("TextureRect/MarginContainer/Options/Tutorial")
+play_button = NodePath("TextureRect/MarginContainer/Options/Play")
+quit_button = NodePath("TextureRect/MarginContainer/Options/Quit")
+hill_scene = ExtResource("2_ucygd")
+tutorial_manager = ExtResource("3_mipys")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_ow34m")
+script = ExtResource("1_yqorp")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 128
+
+[node name="Title" type="VBoxContainer" parent="TextureRect/MarginContainer"]
+layout_mode = 2
+
+[node name="Stuff It We" type="RichTextLabel" parent="TextureRect/MarginContainer/Title"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0.129558, 0.129558, 0.129558, 1)
+theme_override_fonts/normal_font = ExtResource("2_2wh52")
+theme_override_font_sizes/normal_font_size = 48
+text = "Stuff It, We"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Snowball" type="RichTextLabel" parent="TextureRect/MarginContainer/Title"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0.318626, 0.596544, 0.691966, 1)
+theme_override_fonts/normal_font = ExtResource("3_ow34m")
+theme_override_font_sizes/normal_font_size = 96
+text = "SNOWBALL"
+fit_content = true
+autowrap_mode = 0
+script = ExtResource("4_ow34m")
+
+[node name="Options" type="VBoxContainer" parent="TextureRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 19
+
+[node name="Tutorial" type="Button" parent="TextureRect/MarginContainer/Options"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_l72w3")
+theme_override_font_sizes/font_size = 32
+text = "Tutorial"
+
+[node name="Play" type="Button" parent="TextureRect/MarginContainer/Options"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_l72w3")
+theme_override_font_sizes/font_size = 32
+text = "Play"
+
+[node name="Quit" type="Button" parent="TextureRect/MarginContainer/Options"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_l72w3")
+theme_override_font_sizes/font_size = 32
+text = "Quit"

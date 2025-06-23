@@ -11,13 +11,18 @@ config_version=5
 [application]
 
 config/name="GameJamTechFest2025"
-run/main_scene="uid://bsqhw71hvla0j"
+run/main_scene="uid://wnpjlxkryraa"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameManager="*res://scripts/game_manager.gd"
+
+[display]
+
+window/size/resizable=false
+window/stretch/mode="canvas_items"
 
 [global_group]
 

@@ -3,13 +3,31 @@ class_name TerrainChunk
 
 @export var obstacles: Array[TerrainObstacle]
 @export var min_obstacles_per_chunk: int = 5
+@export var x_sides_margin: float = 1.0
 @onready var terrain_base: MeshInstance3D = $"Terrain"
 var terrain_size: Vector2
 
 func _ready() -> void:
 	terrain_size = (terrain_base.mesh as PlaneMesh).size
 
-func generate(hill_params: HillManager) -> void:
+func select_valid_obstacles(biomes: Array[HillManager.Biome]) -> Array[int]:
+	# WHAT IM DOING HERE:
+	# filtering for all obstacles in the valid biome set
+	# incrementing through every number in the probability
+	# weight space
+	# creating a dict pointing to the obstacle’s index
+	# in the obstacles array
+	var weighted_index_list: Array[int] = []
+	for ob_idx in range(len(obstacles)):
+		var obstacle = obstacles[ob_idx]
+		for biome in biomes:
+			var obstacle_biome_weight: int = obstacle.biome_weight(biome)
+			for i in range(obstacle_biome_weight):
+				weighted_index_list.push_back(ob_idx)
+	return weighted_index_list
+	
+
+func generate(hill_params: HillManager, biomes: Array[HillManager.Biome]) -> void:
 	# (Claimed position centre, scale (leave free radius))
 	var claimed_positions: Dictionary[Vector3, float] = {}
 	# Don’t ask me to explain this
@@ -26,13 +44,13 @@ func generate(hill_params: HillManager) -> void:
 		var scale_variance = randf_range(-scale_variance_sample, scale_variance_sample)
 		var relative_scale = scale_base_sample + scale_variance
 		var obst_scale = lerpf(hill_params.min_scale, hill_params.max_scale, relative_scale)
-		var obstacle = select_obstacle()
+		var obstacle: TerrainObstacle = select_obstacle(biomes)
 		var spawn_pos_valid: bool = false
 		var spawn_pos: Vector3
 		# Dumb loop until we have a valid spawn point
 		while !spawn_pos_valid:
 			spawn_pos = Vector3(
-				randf_range(-terrain_size.x / 2, terrain_size.x / 2),
+				randf_range(-terrain_size.x / 2 + x_sides_margin, terrain_size.x / 2 - x_sides_margin),
 				0,
 				randf_range(-terrain_size.y / 2, terrain_size.y / 2)
 			)
@@ -40,20 +58,15 @@ func generate(hill_params: HillManager) -> void:
 			for pos in claimed_positions:
 				var pos_radius = claimed_positions[pos]
 				spawn_pos_valid = pos.distance_to(spawn_pos) > pos_radius and spawn_pos_valid
-		var scene = obstacle.scene.instantiate() as Node3D
+		var scene = obstacle.scene.instantiate()
 		scene.position = spawn_pos
-		scene.scale = Vector3(obst_scale, obst_scale, obst_scale)
+		scene.set_base_volume(obstacle.base_volume)
+		scene.rotate_y(randf_range(0, TAU))
+		scene.set_uniform_scale(obst_scale)
 		add_child(scene)
 	
 # Select an obstacle from the pool (each has an integer probability)
-func select_obstacle() -> TerrainObstacle:
-	var probability_total: int = 0
-	for obstacle in obstacles:
-		probability_total += obstacle.probability_weight
-	var obstacle_weight = randi_range(0, max(probability_total - 1, 0))
-	var obstacle_idx = 0
-	while obstacle_weight > 0:
-		obstacle_weight -= obstacles[obstacle_idx].probability_weight
-		if obstacle_weight > 0:
-			obstacle_idx += 1
-	return obstacles[obstacle_idx]
+func select_obstacle(biomes: Array[HillManager.Biome]) -> TerrainObstacle:
+	var weight_list: Array[int] = select_valid_obstacles(biomes)
+	var obstacle = randi_range(0, weight_list.size() - 1)
+	return obstacles[weight_list[obstacle]]

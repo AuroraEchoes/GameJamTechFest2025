@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://m0w1ce7qtve"]
+
+[ext_resource type="ArrayMesh" uid="uid://cod0pt4v6j5l2" path="res://assets/models/SM_Prop_Barrel_01.obj" id="1_j7ti7"]
+[ext_resource type="Script" uid="uid://kxojtn4uepnf" path="res://scripts/obstacle.gd" id="1_yplah"]
+[ext_resource type="Texture2D" uid="uid://bu2waiwliubf1" path="res://assets/textures/PolygonTown_Texture_01_A.png" id="2_0tyq8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0tyq8"]
+size = Vector3(0.322205, 0.935669, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yplah"]
+albedo_color = Color(0.376584, 0.279113, 0.159268, 1)
+albedo_texture = ExtResource("2_0tyq8")
+
+[node name="Barrel" type="Node3D"]
+script = ExtResource("1_yplah")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00692749, 0.502662, 0)
+shape = SubResource("BoxShape3D_0tyq8")
+
+[node name="SmPropBarrel01" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0.5, 0)
+mesh = ExtResource("1_j7ti7")
+surface_material_override/0 = SubResource("StandardMaterial3D_yplah")

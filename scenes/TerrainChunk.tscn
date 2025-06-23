@@ -1,111 +1,394 @@
-[gd_scene load_steps=30 format=3 uid="uid://da3r8egurnvdb"]
+[gd_scene load_steps=57 format=3 uid="uid://da3r8egurnvdb"]
 
 [ext_resource type="Script" uid="uid://rbryramdaow7" path="res://scripts/terrain_chunk.gd" id="1_ee0uk"]
-[ext_resource type="Script" uid="uid://d1gj46hswg3pu" path="res://scripts/terrain_obstacle.gd" id="2_34gou"]
+[ext_resource type="Script" uid="uid://gfj3tg4qadot" path="res://scripts/terrain_obstacle.gd" id="2_34gou"]
 [ext_resource type="PackedScene" uid="uid://byd07frmf67ct" path="res://scenes/props/Snowman.tscn" id="3_a21ai"]
 [ext_resource type="PackedScene" uid="uid://ck11lh1e0vf1x" path="res://scenes/props/Snowmaker.tscn" id="4_34gou"]
 [ext_resource type="PackedScene" uid="uid://b46nxhi5dr2wi" path="res://scenes/props/Fence3.tscn" id="5_dhhup"]
-[ext_resource type="PackedScene" uid="uid://bef0oita52pj6" path="res://scenes/props/Fence2.tscn" id="6_dhhup"]
 [ext_resource type="PackedScene" uid="uid://diw084wag1660" path="res://scenes/props/Fence1.tscn" id="7_ujd5a"]
 [ext_resource type="PackedScene" uid="uid://c2o8xqhj2qtj1" path="res://scenes/props/Flag5.tscn" id="8_rpluw"]
 [ext_resource type="PackedScene" uid="uid://b7qc6jtathao7" path="res://scenes/props/Flag4.tscn" id="9_wg48j"]
 [ext_resource type="PackedScene" uid="uid://bwd8gwok4a31i" path="res://scenes/props/Flag3.tscn" id="10_1okqb"]
 [ext_resource type="PackedScene" uid="uid://uwc8al12rwaa" path="res://scenes/props/Flag2.tscn" id="11_tq175"]
 [ext_resource type="PackedScene" uid="uid://b1gpimmsvyshc" path="res://scenes/props/Flag1.tscn" id="12_sdmwy"]
-[ext_resource type="PackedScene" uid="uid://bdyct4irwtvhr" path="res://scenes/props/Tree.tscn" id="13_sdmwy"]
+[ext_resource type="PackedScene" uid="uid://bdyct4irwtvhr" path="res://scenes/props/Tree1.tscn" id="13_sdmwy"]
 [ext_resource type="PackedScene" uid="uid://c2g4tut1rp3h5" path="res://scenes/props/TreeDead.tscn" id="14_aat7g"]
 [ext_resource type="PackedScene" uid="uid://cunyuritw2mwy" path="res://scenes/props/TreeStump.tscn" id="15_qr1hn"]
+[ext_resource type="PackedScene" uid="uid://drk35xkg2bm1t" path="res://scenes/props/Rock1.tscn" id="15_wfuk4"]
+[ext_resource type="PackedScene" uid="uid://bm403xn2tryk4" path="res://scenes/props/Rock2.tscn" id="16_ina8b"]
+[ext_resource type="PackedScene" uid="uid://d2ddj4hsawcq7" path="res://scenes/props/Tree2.tscn" id="17_2vs8l"]
+[ext_resource type="PackedScene" uid="uid://wigdc7ii3wgf" path="res://scenes/props/Plank.tscn" id="18_tsp3q"]
+[ext_resource type="PackedScene" uid="uid://7gjkk05r3w8e" path="res://scenes/props/Pipe.tscn" id="19_8exmi"]
+[ext_resource type="PackedScene" uid="uid://dexl7hgwg6m1l" path="res://scenes/props/Ladder.tscn" id="20_yr4gp"]
+[ext_resource type="PackedScene" uid="uid://m0w1ce7qtve" path="res://scenes/props/Barrel.tscn" id="21_dummg"]
+[ext_resource type="PackedScene" uid="uid://b5fbenvl6tqtr" path="res://scenes/props/Propane.tscn" id="22_7hshg"]
+[ext_resource type="PackedScene" uid="uid://cjixiygk20ta4" path="res://scenes/props/Chair.tscn" id="23_8exmi"]
+[ext_resource type="Script" uid="uid://dhwtjbe422djs" path="res://scripts/canyon_wall.gd" id="24_yr4gp"]
 
 [sub_resource type="Resource" id="Resource_ujd5a"]
 script = ExtResource("2_34gou")
 probability_weight = 5
+base_volume = 1.0
 scene = ExtResource("3_a21ai")
+forest_probability = 0
+dead_forest_probability = 0
+snowman_haven_probability = 10
+skiing_race_probability = 1
+rocky_outcrops_probability = 1
+trashyard_probability = 0
 metadata/_custom_type_script = "uid://d1gj46hswg3pu"
 
 [sub_resource type="Resource" id="Resource_rpluw"]
 script = ExtResource("2_34gou")
 probability_weight = 3
+base_volume = 1.0
 scene = ExtResource("4_34gou")
+forest_probability = 0
+dead_forest_probability = 0
+snowman_haven_probability = 2
+skiing_race_probability = 2
+rocky_outcrops_probability = 0
+trashyard_probability = 0
 metadata/_custom_type_script = "uid://d1gj46hswg3pu"
 
 [sub_resource type="Resource" id="Resource_6ui3r"]
 script = ExtResource("2_34gou")
 probability_weight = 1
+base_volume = 1.0
 scene = ExtResource("5_dhhup")
+forest_probability = 0
+dead_forest_probability = 0
+snowman_haven_probability = 1
+skiing_race_probability = 2
+rocky_outcrops_probability = 1
+trashyard_probability = 0
 metadata/_custom_type_script = "uid://d1gj46hswg3pu"
 
 [sub_resource type="Resource" id="Resource_a21ai"]
 script = ExtResource("2_34gou")
 probability_weight = 2
+base_volume = 1.0
 scene = ExtResource("7_ujd5a")
+forest_probability = 0
+dead_forest_probability = 0
+snowman_haven_probability = 1
+skiing_race_probability = 2
+rocky_outcrops_probability = 1
+trashyard_probability = 0
 metadata/_custom_type_script = "uid://d1gj46hswg3pu"
 
 [sub_resource type="Resource" id="Resource_v0rx5"]
 script = ExtResource("2_34gou")
 probability_weight = 1
+base_volume = 1.0
 scene = ExtResource("8_rpluw")
+forest_probability = 0
+dead_forest_probability = 0
+snowman_haven_probability = 1
+skiing_race_probability = 2
+rocky_outcrops_probability = 1
+trashyard_probability = 0
 metadata/_custom_type_script = "uid://d1gj46hswg3pu"
 
 [sub_resource type="Resource" id="Resource_dhhup"]
 script = ExtResource("2_34gou")
 probability_weight = 1
+base_volume = 1.0
 scene = ExtResource("9_wg48j")
+forest_probability = 0
+dead_forest_probability = 0
+snowman_haven_probability = 1
+skiing_race_probability = 1
+rocky_outcrops_probability = 0
+trashyard_probability = 0
 metadata/_custom_type_script = "uid://d1gj46hswg3pu"
 
 [sub_resource type="Resource" id="Resource_wg48j"]
 script = ExtResource("2_34gou")
 probability_weight = 1
+base_volume = 1.0
 scene = ExtResource("10_1okqb")
+forest_probability = 0
+dead_forest_probability = 0
+snowman_haven_probability = 0
+skiing_race_probability = 1
+rocky_outcrops_probability = 1
+trashyard_probability = 0
 metadata/_custom_type_script = "uid://d1gj46hswg3pu"
 
 [sub_resource type="Resource" id="Resource_aat7g"]
 script = ExtResource("2_34gou")
 probability_weight = 1
+base_volume = 1.0
 scene = ExtResource("11_tq175")
+forest_probability = 0
+dead_forest_probability = 0
+snowman_haven_probability = 1
+skiing_race_probability = 1
+rocky_outcrops_probability = 0
+trashyard_probability = 0
 metadata/_custom_type_script = "uid://d1gj46hswg3pu"
 
 [sub_resource type="Resource" id="Resource_qr1hn"]
 script = ExtResource("2_34gou")
 probability_weight = 1
+base_volume = 1.0
 scene = ExtResource("12_sdmwy")
+forest_probability = 0
+dead_forest_probability = 0
+snowman_haven_probability = 0
+skiing_race_probability = 1
+rocky_outcrops_probability = 1
+trashyard_probability = 0
 metadata/_custom_type_script = "uid://d1gj46hswg3pu"
 
 [sub_resource type="Resource" id="Resource_wfuk4"]
 script = ExtResource("2_34gou")
 probability_weight = 4
+base_volume = 1.0
 scene = ExtResource("13_sdmwy")
+forest_probability = 8
+dead_forest_probability = 4
+snowman_haven_probability = 0
+skiing_race_probability = 0
+rocky_outcrops_probability = 0
+trashyard_probability = 0
 metadata/_custom_type_script = "uid://d1gj46hswg3pu"
 
 [sub_resource type="Resource" id="Resource_ina8b"]
 script = ExtResource("2_34gou")
 probability_weight = 3
+base_volume = 1.0
 scene = ExtResource("14_aat7g")
+forest_probability = 3
+dead_forest_probability = 8
+snowman_haven_probability = 0
+skiing_race_probability = 0
+rocky_outcrops_probability = 3
+trashyard_probability = 0
 metadata/_custom_type_script = "uid://d1gj46hswg3pu"
 
 [sub_resource type="Resource" id="Resource_2vs8l"]
 script = ExtResource("2_34gou")
 probability_weight = 2
+base_volume = 1.0
 scene = ExtResource("15_qr1hn")
+forest_probability = 3
+dead_forest_probability = 6
+snowman_haven_probability = 0
+skiing_race_probability = 0
+rocky_outcrops_probability = 2
+trashyard_probability = 0
 metadata/_custom_type_script = "uid://d1gj46hswg3pu"
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_hdqcb"]
+[sub_resource type="Resource" id="Resource_yo44b"]
+script = ExtResource("2_34gou")
+probability_weight = 3
+base_volume = 1.0
+scene = ExtResource("15_wfuk4")
+forest_probability = 0
+dead_forest_probability = 0
+snowman_haven_probability = 0
+skiing_race_probability = 0
+rocky_outcrops_probability = 5
+trashyard_probability = 0
+metadata/_custom_type_script = "uid://gfj3tg4qadot"
+
+[sub_resource type="Resource" id="Resource_tsp3q"]
+script = ExtResource("2_34gou")
+probability_weight = 3
+base_volume = 1.0
+scene = ExtResource("16_ina8b")
+forest_probability = 0
+dead_forest_probability = 2
+snowman_haven_probability = 0
+skiing_race_probability = 0
+rocky_outcrops_probability = 5
+trashyard_probability = 0
+metadata/_custom_type_script = "uid://gfj3tg4qadot"
+
+[sub_resource type="Resource" id="Resource_8exmi"]
+script = ExtResource("2_34gou")
+probability_weight = 3
+base_volume = 1.0
+scene = ExtResource("17_2vs8l")
+forest_probability = 5
+dead_forest_probability = 2
+snowman_haven_probability = 0
+skiing_race_probability = 0
+rocky_outcrops_probability = 0
+trashyard_probability = 0
+metadata/_custom_type_script = "uid://gfj3tg4qadot"
+
+[sub_resource type="Resource" id="Resource_vd5x2"]
+script = ExtResource("2_34gou")
+probability_weight = 3
+base_volume = 1.0
+scene = ExtResource("18_tsp3q")
+forest_probability = 0
+dead_forest_probability = 0
+snowman_haven_probability = 0
+skiing_race_probability = 0
+rocky_outcrops_probability = 0
+trashyard_probability = 4
+metadata/_custom_type_script = "uid://gfj3tg4qadot"
+
+[sub_resource type="Resource" id="Resource_3e8rx"]
+script = ExtResource("2_34gou")
+probability_weight = 3
+base_volume = 1.0
+scene = ExtResource("19_8exmi")
+forest_probability = 0
+dead_forest_probability = 0
+snowman_haven_probability = 0
+skiing_race_probability = 0
+rocky_outcrops_probability = 0
+trashyard_probability = 2
+metadata/_custom_type_script = "uid://gfj3tg4qadot"
+
+[sub_resource type="Resource" id="Resource_rwufl"]
+script = ExtResource("2_34gou")
+probability_weight = 3
+base_volume = 1.0
+scene = ExtResource("20_yr4gp")
+forest_probability = 0
+dead_forest_probability = 0
+snowman_haven_probability = 0
+skiing_race_probability = 0
+rocky_outcrops_probability = 0
+trashyard_probability = 4
+metadata/_custom_type_script = "uid://gfj3tg4qadot"
+
+[sub_resource type="Resource" id="Resource_t1ng8"]
+script = ExtResource("2_34gou")
+probability_weight = 3
+base_volume = 1.0
+scene = ExtResource("21_dummg")
+forest_probability = 0
+dead_forest_probability = 0
+snowman_haven_probability = 0
+skiing_race_probability = 0
+rocky_outcrops_probability = 0
+trashyard_probability = 1
+metadata/_custom_type_script = "uid://gfj3tg4qadot"
+
+[sub_resource type="Resource" id="Resource_fl315"]
+script = ExtResource("2_34gou")
+probability_weight = 3
+base_volume = 1.0
+scene = ExtResource("22_7hshg")
+forest_probability = 0
+dead_forest_probability = 0
+snowman_haven_probability = 0
+skiing_race_probability = 0
+rocky_outcrops_probability = 0
+trashyard_probability = 2
+metadata/_custom_type_script = "uid://gfj3tg4qadot"
+
+[sub_resource type="Resource" id="Resource_t2cac"]
+script = ExtResource("2_34gou")
+probability_weight = 3
+base_volume = 1.0
+scene = ExtResource("23_8exmi")
+forest_probability = 0
+dead_forest_probability = 0
+snowman_haven_probability = 0
+skiing_race_probability = 0
+rocky_outcrops_probability = 0
+trashyard_probability = 2
+metadata/_custom_type_script = "uid://gfj3tg4qadot"
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yr4gp"]
 size = Vector2(50, 50)
+subdivide_width = 25
+subdivide_depth = 25
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tq175"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8exmi"]
+albedo_color = Color(0.722084, 0.799872, 0.86687, 1)
+normal_texture = SubResource("NoiseTexture2D_tq175")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yr4gp"]
+size = Vector3(50, 0.2, 50)
+
+[sub_resource type="Gradient" id="Gradient_yr4gp"]
+offsets = PackedFloat32Array(0, 0.498288, 1)
+colors = PackedColorArray(0.133196, 0.133196, 0.133196, 1, 0.0760225, 0.0768314, 0.0790459, 1, 0.279524, 0.172824, 0.107337, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dummg"]
+noise_type = 5
+fractal_type = 2
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7hshg"]
+color_ramp = SubResource("Gradient_yr4gp")
+noise = SubResource("FastNoiseLite_dummg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vd5x2"]
+albedo_texture = SubResource("NoiseTexture2D_7hshg")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hdqcb"]
+material = SubResource("StandardMaterial3D_vd5x2")
+size = Vector2(20, 50)
+subdivide_width = 25
+subdivide_depth = 25
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sdmwy"]
+size = Vector3(20, 1, 50)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tq175"]
-albedo_color = Color(0.432584, 0.467164, 0.443516, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_tq175"]
-size = Vector3(50, 0.25, 50)
+albedo_color = Color(0.189799, 0.181126, 0.140085, 1)
+normal_texture = SubResource("NoiseTexture2D_tq175")
 
 [node name="TerrainChunk" type="Node3D"]
 script = ExtResource("1_ee0uk")
-obstacles = Array[ExtResource("2_34gou")]([SubResource("Resource_ujd5a"), SubResource("Resource_rpluw"), SubResource("Resource_6ui3r"), SubResource("Resource_a21ai"), SubResource("Resource_v0rx5"), SubResource("Resource_dhhup"), SubResource("Resource_wg48j"), SubResource("Resource_aat7g"), SubResource("Resource_qr1hn"), SubResource("Resource_wfuk4"), SubResource("Resource_ina8b"), SubResource("Resource_2vs8l")])
+obstacles = Array[ExtResource("2_34gou")]([SubResource("Resource_ujd5a"), SubResource("Resource_rpluw"), SubResource("Resource_6ui3r"), SubResource("Resource_a21ai"), SubResource("Resource_v0rx5"), SubResource("Resource_dhhup"), SubResource("Resource_wg48j"), SubResource("Resource_aat7g"), SubResource("Resource_qr1hn"), SubResource("Resource_wfuk4"), SubResource("Resource_ina8b"), SubResource("Resource_2vs8l"), SubResource("Resource_yo44b"), SubResource("Resource_tsp3q"), SubResource("Resource_8exmi"), SubResource("Resource_vd5x2"), SubResource("Resource_3e8rx"), SubResource("Resource_rwufl"), SubResource("Resource_t1ng8"), SubResource("Resource_fl315"), SubResource("Resource_t2cac")])
 
 [node name="Terrain" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_hdqcb")
-surface_material_override/0 = SubResource("StandardMaterial3D_tq175")
+mesh = SubResource("PlaneMesh_yr4gp")
+surface_material_override/0 = SubResource("StandardMaterial3D_8exmi")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Terrain"]
+collision_layer = 3
+collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/StaticBody3D"]
-shape = SubResource("BoxShape3D_tq175")
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Terrain/StaticBody3D"]
+shape = SubResource("BoxShape3D_yr4gp")
+
+[node name="LeftWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.173648, -0.984808, 0, 0.984808, 0.173648, 0, 0, 0, 1, 26.5, 9, 0)
+mesh = SubResource("PlaneMesh_hdqcb")
+script = ExtResource("24_yr4gp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="LeftWall"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="LeftWall/StaticBody3D"]
+shape = SubResource("BoxShape3D_sdmwy")
+
+[node name="Area3D" type="Area3D" parent="LeftWall"]
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="LeftWall/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.444092, 0)
+shape = SubResource("BoxShape3D_sdmwy")
+
+[node name="RightWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.173648, 0.984808, 0, -0.984808, 0.173648, 0, 0, 0, 1, -26.5, 9, 0)
+mesh = SubResource("PlaneMesh_hdqcb")
+surface_material_override/0 = SubResource("StandardMaterial3D_tq175")
+script = ExtResource("24_yr4gp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RightWall"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="RightWall/StaticBody3D"]
+shape = SubResource("BoxShape3D_sdmwy")
+
+[node name="Area3D" type="Area3D" parent="RightWall"]
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="RightWall/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.444092, 0)
+shape = SubResource("BoxShape3D_sdmwy")

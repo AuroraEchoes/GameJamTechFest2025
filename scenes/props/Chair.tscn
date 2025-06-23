@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjixiygk20ta4"]
+
+[ext_resource type="Script" uid="uid://kxojtn4uepnf" path="res://scripts/obstacle.gd" id="1_e0mcn"]
+[ext_resource type="ArrayMesh" uid="uid://c3qvjsqo2thkc" path="res://assets/models/SM_Prop_DeskChair_01.obj" id="1_w5usl"]
+[ext_resource type="Texture2D" uid="uid://bu2waiwliubf1" path="res://assets/textures/PolygonTown_Texture_01_A.png" id="2_6u405"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6u405"]
+size = Vector3(1.04688, 0.404297, 0.430237)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e0mcn"]
+albedo_texture = ExtResource("2_6u405")
+
+[node name="Chair" type="Node3D"]
+script = ExtResource("1_e0mcn")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.205078, 0.202148, -0.0348816)
+shape = SubResource("BoxShape3D_6u405")
+
+[node name="SmPropDeskChair01" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, 0, 0, 0, 0.01, 0.313653, 0.107819, 0)
+mesh = ExtResource("1_w5usl")
+surface_material_override/0 = SubResource("StandardMaterial3D_e0mcn")

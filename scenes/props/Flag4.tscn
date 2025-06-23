@@ -1,14 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7qc6jtathao7"]
+[gd_scene load_steps=7 format=3 uid="uid://b7qc6jtathao7"]
 
 [ext_resource type="ArrayMesh" uid="uid://1ntcc54p34g6" path="res://assets/models/SM_Prop_Flag_04.obj" id="1_0kadt"]
+[ext_resource type="Script" uid="uid://kxojtn4uepnf" path="res://scripts/obstacle.gd" id="1_qklxv"]
 [ext_resource type="Texture2D" uid="uid://qlrwv2akbhid" path="res://assets/textures/PolygonSnow_Texture_01_A.png" id="2_flbfo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qklxv"]
 albedo_texture = ExtResource("2_flbfo")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_s7cbk"]
+size = Vector3(0.8, 0.55, 0.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_taqo2"]
+size = Vector3(0.05, 2.5, 0.05)
+
 [node name="Flag4" type="Node3D"]
+script = ExtResource("1_qklxv")
 
 [node name="SmPropFlag04" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 mesh = ExtResource("1_0kadt")
 surface_material_override/0 = SubResource("StandardMaterial3D_qklxv")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69943, 0)
+shape = SubResource("BoxShape3D_s7cbk")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.389497, 0.5, 0)
+shape = SubResource("BoxShape3D_taqo2")

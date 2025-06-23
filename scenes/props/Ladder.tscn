@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://dexl7hgwg6m1l"]
+
+[ext_resource type="Script" uid="uid://kxojtn4uepnf" path="res://scripts/obstacle.gd" id="1_ljydb"]
+[ext_resource type="ArrayMesh" uid="uid://hs1g7pte0txr" path="res://assets/models/SM_Prop_Ladder_1x1_01P.obj" id="1_m5rrx"]
+[ext_resource type="Texture2D" uid="uid://bu2waiwliubf1" path="res://assets/textures/PolygonTown_Texture_01_A.png" id="2_f50w1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f50w1"]
+size = Vector3(1.88525, 1.16748, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ljydb"]
+albedo_color = Color(0.393061, 0.239468, 0.129002, 1)
+albedo_texture = ExtResource("2_f50w1")
+
+[node name="Ladder" type="Node3D"]
+script = ExtResource("1_ljydb")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0144043, 0.58374, 0)
+shape = SubResource("BoxShape3D_f50w1")
+
+[node name="SmPropLadder1x101p" type="MeshInstance3D" parent="."]
+transform = Transform3D(-8.74228e-10, 0.02, 0, -0.02, -8.74228e-10, 0, 0, 0, 0.02, -1, 0, 0)
+mesh = ExtResource("1_m5rrx")
+surface_material_override/0 = SubResource("StandardMaterial3D_ljydb")

@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://7gjkk05r3w8e"]
+
+[ext_resource type="Script" uid="uid://kxojtn4uepnf" path="res://scripts/obstacle.gd" id="1_37iq2"]
+[ext_resource type="ArrayMesh" uid="uid://cmcsmh26uwgj7" path="res://assets/models/SM_Prop_Pipe_Curve_02.obj" id="2_aqas6"]
+[ext_resource type="Texture2D" uid="uid://cckoebjtfgxl4" path="res://assets/textures/PolygonPrototype_Texture_01.png" id="3_aqas6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5bs71"]
+albedo_texture = ExtResource("3_aqas6")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5bs71"]
+size = Vector3(0.278015, 1.53076, 0.5)
+
+[node name="Pipe" type="Node3D"]
+script = ExtResource("1_37iq2")
+
+[node name="SmPropPipeCurve02" type="MeshInstance3D" parent="."]
+transform = Transform3D(-3.46945e-18, -1.74623e-10, 0.003, 0.003, -1.31134e-10, 0, 1.31134e-10, 0.003, 1.74623e-10, 0, 0, 0)
+mesh = ExtResource("2_aqas6")
+surface_material_override/0 = SubResource("StandardMaterial3D_5bs71")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00900269, 0.765381, 0)
+shape = SubResource("BoxShape3D_5bs71")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.784392, 1.556, 0)
+shape = SubResource("BoxShape3D_5bs71")

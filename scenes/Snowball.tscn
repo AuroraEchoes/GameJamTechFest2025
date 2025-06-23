@@ -1,9 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://cr8tcld135icl"]
+[gd_scene load_steps=10 format=3 uid="uid://cr8tcld135icl"]
 
 [ext_resource type="Script" uid="uid://cahcujubk8aw2" path="res://scripts/snowball_controller.gd" id="1_ajoi3"]
 [ext_resource type="Script" uid="uid://df7ochw5qh8j1" path="res://scripts/camera_rotation_lock.gd" id="2_224t7"]
+[ext_resource type="PackedScene" uid="uid://2qi4d1medwyf" path="res://scenes/SnowballDamageParticles.tscn" id="2_dtlfo"]
+
+[sub_resource type="Gradient" id="Gradient_dtlfo"]
+offsets = PackedFloat32Array(0, 0.501712, 1)
+colors = PackedColorArray(0.545897, 0.676147, 0.71603, 1, 0.839517, 0.878016, 0.883952, 1, 0.629675, 0.629675, 0.629675, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2dg3m"]
+noise_type = 4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_snkwp"]
+seamless = true
+seamless_blend_skirt = 0.3
+color_ramp = SubResource("Gradient_dtlfo")
+noise = SubResource("FastNoiseLite_2dg3m")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1uxb6"]
+albedo_texture = SubResource("NoiseTexture2D_snkwp")
 
 [sub_resource type="SphereMesh" id="SphereMesh_ajoi3"]
+material = SubResource("StandardMaterial3D_1uxb6")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_224t7"]
 
@@ -12,6 +30,7 @@
 [node name="Rigidbody" type="RigidBody3D" parent="." groups=["Player"]]
 transform = Transform3D(1, -7.00412e-12, -2.72848e-11, 7.00412e-12, 1, -1.7053e-12, 2.72848e-11, 1.7053e-12, 1, 0, 0, 0)
 script = ExtResource("1_ajoi3")
+collision_particles = ExtResource("2_dtlfo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Rigidbody"]
 transform = Transform3D(1, 3.36314e-12, -7.27596e-12, 4.02345e-12, 1, -4.54747e-13, 1.45519e-11, 0, 1, 0, 0, 0)
@@ -21,6 +40,6 @@ mesh = SubResource("SphereMesh_ajoi3")
 shape = SubResource("SphereShape3D_224t7")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 2.40824e-05, -9.36916e-06, -1.24021e-05, 0.765371, 0.64359, 2.26701e-05, -0.64359, 0.765371, -0.00020762, 7.30984, 4.17425)
+transform = Transform3D(1, 0, 0, 0, 0.846639, 0.532167, 0, -0.532167, 0.846639, 0.37, 5.4851, 4.22373)
 current = true
 script = ExtResource("2_224t7")

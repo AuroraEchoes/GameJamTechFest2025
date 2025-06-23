@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://wigdc7ii3wgf"]
+
+[ext_resource type="ArrayMesh" uid="uid://b3kr0tnnth06h" path="res://assets/models/SM_Prop_WoodPlank_01.obj" id="1_6sycq"]
+[ext_resource type="Script" uid="uid://kxojtn4uepnf" path="res://scripts/obstacle.gd" id="1_qhg1b"]
+[ext_resource type="Texture2D" uid="uid://bu2waiwliubf1" path="res://assets/textures/PolygonTown_Texture_01_A.png" id="3_4q6x3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qhg1b"]
+size = Vector3(0.152924, 2.10797, 0.328125)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0jp6"]
+albedo_color = Color(0.564297, 0.375317, 0.296585, 1)
+albedo_texture = ExtResource("3_4q6x3")
+
+[node name="Plank" type="Node3D"]
+script = ExtResource("1_qhg1b")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.942233, 0.334958, 0, -0.334958, 0.942233, 0, 0, 0, 1, 0.0121913, 0.567054, 0.0166016)
+shape = SubResource("BoxShape3D_qhg1b")
+
+[node name="SmPropWoodPlank01" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.00330514, -0.00943801, 0, 0.00943801, 0.00330514, 0, 0, 0, 0.01, 0, 0.563328, 0)
+mesh = ExtResource("1_6sycq")
+surface_material_override/0 = SubResource("StandardMaterial3D_x0jp6")

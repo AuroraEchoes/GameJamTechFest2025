@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5fbenvl6tqtr"]
+
+[ext_resource type="ArrayMesh" uid="uid://dlqacwsvjiahh" path="res://assets/models/SM_Prop_Propanel_02.obj" id="1_2e720"]
+[ext_resource type="Script" uid="uid://kxojtn4uepnf" path="res://scripts/obstacle.gd" id="1_7xv86"]
+[ext_resource type="Texture2D" uid="uid://bu2waiwliubf1" path="res://assets/textures/PolygonTown_Texture_01_A.png" id="2_okkxp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_okkxp"]
+size = Vector3(0.562073, 0.835815, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xv86"]
+albedo_texture = ExtResource("2_okkxp")
+
+[node name="Propanol" type="Node3D"]
+script = ExtResource("1_7xv86")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0276794, 0.417908, 0)
+shape = SubResource("BoxShape3D_okkxp")
+
+[node name="SmPropPropanel02" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
+mesh = ExtResource("1_2e720")
+surface_material_override/0 = SubResource("StandardMaterial3D_7xv86")

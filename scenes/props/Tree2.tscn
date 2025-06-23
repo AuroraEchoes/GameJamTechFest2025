@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2ddj4hsawcq7"]
+
+[ext_resource type="Script" uid="uid://kxojtn4uepnf" path="res://scripts/obstacle.gd" id="1_qca54"]
+[ext_resource type="ArrayMesh" uid="uid://c2vej18xmp66m" path="res://assets/models/SM_Env_Tree_Pine_01.obj" id="2_sweci"]
+[ext_resource type="Texture2D" uid="uid://cckoebjtfgxl4" path="res://assets/textures/PolygonPrototype_Texture_01.png" id="3_qca54"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ud2d4"]
+albedo_color = Color(0.497668, 0.487016, 0.485595, 1)
+albedo_texture = ExtResource("3_qca54")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5x4hs"]
+height = 2.56836
+radius = 0.244629
+
+[node name="Tree" type="Node3D"]
+script = ExtResource("1_qca54")
+
+[node name="SmEnvTreePine01" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+mesh = ExtResource("2_sweci")
+surface_material_override/0 = SubResource("StandardMaterial3D_ud2d4")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249479, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0504575, 0.983246, 0)
+shape = SubResource("CylinderShape3D_5x4hs")

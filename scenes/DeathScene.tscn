@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=3 uid="uid://dmhwsbduvhppq"]
+
+[ext_resource type="Script" uid="uid://c8n1e7hhryblk" path="res://scripts/ui/death_menu.gd" id="1_ld8m6"]
+[ext_resource type="FontFile" uid="uid://plf8r8anhu6l" path="res://assets/fonts/RubikWetPaint-Regular.ttf" id="1_ondmv"]
+[ext_resource type="FontFile" uid="uid://bepqu1vl3b4b5" path="res://assets/fonts/PublicSans-BoldItalic.ttf" id="2_qcfri"]
+[ext_resource type="Script" uid="uid://br4vfebvwt67" path="res://scripts/ui/excuses.gd" id="3_3j53f"]
+[ext_resource type="FontFile" uid="uid://ckgxva8d7ybfh" path="res://assets/fonts/PublicSans-SemiBold.ttf" id="3_lfuu4"]
+[ext_resource type="FontFile" uid="uid://r6ool5u0v1l3" path="res://assets/fonts/PublicSans-SemiBoldItalic.ttf" id="4_3j53f"]
+[ext_resource type="Script" uid="uid://7cccfuh3yevp" path="res://scripts/ui/death_screen_score.gd" id="4_d6rtc"]
+[ext_resource type="FontFile" uid="uid://b2p5sdul1gprd" path="res://assets/fonts/PublicSans-Bold.ttf" id="6_3j53f"]
+
+[node name="DeathScene" type="Control" node_paths=PackedStringArray("again_button", "main_menu_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ld8m6")
+again_button = NodePath("Panel/MarginContainer/VBoxContainer/Again")
+main_menu_button = NodePath("Panel/MarginContainer/VBoxContainer/Main Menu")
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.0
+offset_top = -192.0
+offset_right = 137.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="GameOver" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ondmv")
+theme_override_font_sizes/font_size = 40
+text = "GAME OVER"
+
+[node name="Score" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_qcfri")
+theme_override_font_sizes/font_size = 20
+text = "Score: x"
+script = ExtResource("4_d6rtc")
+
+[node name="Excuse" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("6_3j53f")
+fit_content = true
+script = ExtResource("3_3j53f")
+
+[node name="DMOnDiscord" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_lfuu4")
+theme_override_fonts/italics_font = ExtResource("4_3j53f")
+bbcode_enabled = true
+text = "Good Score? Send a screenshot of this page to [i]@auroraes[/i] on Discord and I’ll add you to the itch.io leaderboard."
+fit_content = true
+
+[node name="Again" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_3j53f")
+theme_override_font_sizes/font_size = 24
+text = "Again!"
+
+[node name="Main Menu" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_3j53f")
+theme_override_font_sizes/font_size = 24
+text = "Main Menu"

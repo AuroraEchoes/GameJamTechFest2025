@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://bm403xn2tryk4"]
+
+[ext_resource type="Script" uid="uid://kxojtn4uepnf" path="res://scripts/obstacle.gd" id="1_anare"]
+[ext_resource type="ArrayMesh" uid="uid://biy5e6ryux3bh" path="res://assets/models/SM_Generic_Small_Rocks_05.obj" id="1_wuopl"]
+[ext_resource type="Texture2D" uid="uid://cckoebjtfgxl4" path="res://assets/textures/PolygonPrototype_Texture_01.png" id="2_5mpxm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_anare"]
+albedo_color = Color(0.556953, 0.556953, 0.556953, 1)
+albedo_texture = ExtResource("2_5mpxm")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5mpxm"]
+size = Vector3(1.25, 1, 0.5)
+
+[node name="Rock2" type="Node3D"]
+script = ExtResource("1_anare")
+
+[node name="SmGenericSmallRocks05" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.05, 0, 0, 0, 0.15, 0, 0, 0, 0.05, 0, 0, 0)
+mesh = ExtResource("1_wuopl")
+surface_material_override/0 = SubResource("StandardMaterial3D_anare")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_5mpxm")

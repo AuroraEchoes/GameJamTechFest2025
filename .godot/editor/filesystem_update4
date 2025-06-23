@@ -1,6 +1,0 @@
-res://scenes/Hill.tscn
-res://scenes/SnowballMovement.tscn
-res://scenes/Snowball.tscn
-res://scenes/TerrainChunk.tscn
-res://scripts/snowballMovement.gd
-res://scripts/camera_rotation_lock.gd

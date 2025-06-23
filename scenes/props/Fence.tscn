@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://b46nxhi5dr2wi"]
+
+[ext_resource type="ArrayMesh" uid="uid://bb2p1xw3mp0ac" path="res://assets/models/SM_Prop_Fence_03.obj" id="1_f8jxo"]
+[ext_resource type="Texture2D" uid="uid://dptvj6pod2c6o" path="res://assets/textures/PolygonSnow_Fence_Texture_01.tga" id="2_bigo8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5sp4h"]
+albedo_texture = ExtResource("2_bigo8")
+
+[node name="Fence" type="Node3D"]
+
+[node name="SmPropFence03" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+mesh = ExtResource("1_f8jxo")
+surface_material_override/0 = SubResource("StandardMaterial3D_5sp4h")

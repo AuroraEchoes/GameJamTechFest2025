@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://byd07frmf67ct"]
+
+[ext_resource type="Texture2D" uid="uid://kha7th1awwx6" path="res://assets/textures/PolygonSnow_Texture_01_B.png" id="1_8nwud"]
+[ext_resource type="ArrayMesh" uid="uid://c6tdkhyqbdvcl" path="res://assets/models/SM_Prop_Snowman.obj" id="2_8rrpe"]
+[ext_resource type="Texture2D" uid="uid://qlrwv2akbhid" path="res://assets/textures/PolygonSnow_Texture_01_A.png" id="3_ma8s1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_up3e0"]
+albedo_texture = ExtResource("1_8nwud")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fjeo3"]
+albedo_texture = ExtResource("3_ma8s1")
+
+[node name="Snowman" type="Node3D"]
+
+[node name="SmPropSnowman" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_up3e0")
+mesh = ExtResource("2_8rrpe")
+surface_material_override/0 = SubResource("StandardMaterial3D_fjeo3")

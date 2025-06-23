@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://ck11lh1e0vf1x"]
+
+[ext_resource type="ArrayMesh" uid="uid://di2t7ntirc0n2" path="res://assets/models/SM_Prop_SnowMaker_01.obj" id="1_yhuf5"]
+[ext_resource type="Texture2D" uid="uid://qlrwv2akbhid" path="res://assets/textures/PolygonSnow_Texture_01_A.png" id="2_8umro"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lei2t"]
+albedo_texture = ExtResource("2_8umro")
+
+[node name="Snowmaker" type="Node3D"]
+
+[node name="SmPropSnowMaker01" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+mesh = ExtResource("1_yhuf5")
+surface_material_override/0 = SubResource("StandardMaterial3D_lei2t")

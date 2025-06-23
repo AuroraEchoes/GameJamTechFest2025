@@ -1,0 +1,38 @@
+[gd_scene load_steps=10 format=3 uid="uid://da3r8egurnvdb"]
+
+[ext_resource type="Script" uid="uid://rbryramdaow7" path="res://scripts/terrain_chunk.gd" id="1_ee0uk"]
+[ext_resource type="Script" uid="uid://d1gj46hswg3pu" path="res://scripts/terrain_obstacle.gd" id="2_34gou"]
+[ext_resource type="PackedScene" uid="uid://byd07frmf67ct" path="res://scenes/props/Snowman.tscn" id="3_a21ai"]
+[ext_resource type="PackedScene" uid="uid://ck11lh1e0vf1x" path="res://scenes/props/Snowmaker.tscn" id="4_34gou"]
+[ext_resource type="PackedScene" uid="uid://b46nxhi5dr2wi" path="res://scenes/props/Fence.tscn" id="5_dhhup"]
+
+[sub_resource type="Resource" id="Resource_ujd5a"]
+script = ExtResource("2_34gou")
+probability_weight = 5
+scale_range = 1.0
+scene = ExtResource("3_a21ai")
+metadata/_custom_type_script = "uid://d1gj46hswg3pu"
+
+[sub_resource type="Resource" id="Resource_rpluw"]
+script = ExtResource("2_34gou")
+probability_weight = 4
+scale_range = 2.0
+scene = ExtResource("4_34gou")
+metadata/_custom_type_script = "uid://d1gj46hswg3pu"
+
+[sub_resource type="Resource" id="Resource_6ui3r"]
+script = ExtResource("2_34gou")
+probability_weight = 5
+scale_range = 2.0
+scene = ExtResource("5_dhhup")
+metadata/_custom_type_script = "uid://d1gj46hswg3pu"
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hdqcb"]
+size = Vector2(30, 30)
+
+[node name="TerrainChunk" type="Node3D"]
+script = ExtResource("1_ee0uk")
+obstacles = Array[ExtResource("2_34gou")]([SubResource("Resource_ujd5a"), SubResource("Resource_rpluw"), SubResource("Resource_6ui3r")])
+
+[node name="Terrain" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_hdqcb")

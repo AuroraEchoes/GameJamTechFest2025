@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cr8tcld135icl"]
 
-[ext_resource type="Script" uid="uid://cahcujubk8aw2" path="res://scripts/snowballMovement.gd" id="1_ajoi3"]
+[ext_resource type="Script" uid="uid://cahcujubk8aw2" path="res://scripts/snowball_controller.gd" id="1_ajoi3"]
 [ext_resource type="Script" uid="uid://df7ochw5qh8j1" path="res://scripts/camera_rotation_lock.gd" id="2_224t7"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_ajoi3"]
@@ -9,7 +9,7 @@
 
 [node name="Snowball" type="Node3D"]
 
-[node name="Rigidbody" type="RigidBody3D" parent="."]
+[node name="Rigidbody" type="RigidBody3D" parent="." groups=["Player"]]
 transform = Transform3D(1, -7.00412e-12, -2.72848e-11, 7.00412e-12, 1, -1.7053e-12, 2.72848e-11, 1.7053e-12, 1, 0, 0, 0)
 script = ExtResource("1_ajoi3")
 

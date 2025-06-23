@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://c3rcoolierc3h"]
 
-[ext_resource type="Script" path="res://scripts/snowballMovement.gd" id="1_gdgoh"]
+[ext_resource type="Script" uid="uid://cahcujubk8aw2" path="res://scripts/snowball_controller.gd" id="1_gdgoh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vhi4e"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)

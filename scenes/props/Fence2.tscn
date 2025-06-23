@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bef0oita52pj6"]
+
+[ext_resource type="ArrayMesh" uid="uid://djauceula4jcj" path="res://assets/models/SM_Prop_Fence_02.obj" id="1_66qlv"]
+
+[node name="Fence" type="Node3D"]
+
+[node name="SmPropFence02" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+mesh = ExtResource("1_66qlv")

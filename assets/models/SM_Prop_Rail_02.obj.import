@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://da2jahxl3t413"
+path="res://.godot/imported/SM_Prop_Rail_02.obj-d26efe7d18cae3a855c1c8aef1f979ef.mesh"
+
+[deps]
+
+files=["res://.godot/imported/SM_Prop_Rail_02.obj-d26efe7d18cae3a855c1c8aef1f979ef.mesh"]
+
+source_file="res://assets/models/SM_Prop_Rail_02.obj"
+dest_files=["res://.godot/imported/SM_Prop_Rail_02.obj-d26efe7d18cae3a855c1c8aef1f979ef.mesh", "res://.godot/imported/SM_Prop_Rail_02.obj-d26efe7d18cae3a855c1c8aef1f979ef.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

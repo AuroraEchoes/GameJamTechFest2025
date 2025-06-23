@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwd8gwok4a31i"]
+
+[ext_resource type="ArrayMesh" uid="uid://bv2lurnxjnx2t" path="res://assets/models/SM_Prop_Flag_03.obj" id="1_fs2xh"]
+[ext_resource type="Texture2D" uid="uid://qlrwv2akbhid" path="res://assets/textures/PolygonSnow_Texture_01_A.png" id="2_3gkmi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qubl4"]
+albedo_texture = ExtResource("2_3gkmi")
+
+[node name="Flag" type="Node3D"]
+
+[node name="SmPropFlag03" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+mesh = ExtResource("1_fs2xh")
+surface_material_override/0 = SubResource("StandardMaterial3D_qubl4")

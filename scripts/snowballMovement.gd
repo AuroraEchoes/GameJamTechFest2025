@@ -4,6 +4,10 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 var time := 0.0
+var sizeNotified = false
+
+func maxSizeReached() ->  void:
+	print("Max Size Reached!!")
 
 
 func _physics_process(delta: float) -> void:
@@ -26,9 +30,19 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		
+	
 	time += delta 
 	var scaled = sqrt(time)/12
+	
+	if scaled >= 0.3 and not sizeNotified:
+		maxSizeReached()
+		sizeNotified = true
+	
+	scaled = min(scaled, 0.3)
+
 	scale = Vector3(scaled, scaled, scaled)
+
+
 
 	move_and_slide()
 	

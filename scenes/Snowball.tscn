@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cr8tcld135icl"]
+[gd_scene load_steps=16 format=3 uid="uid://cr8tcld135icl"]
 
 [ext_resource type="Script" uid="uid://cahcujubk8aw2" path="res://scripts/snowball_controller.gd" id="1_ajoi3"]
 [ext_resource type="Script" uid="uid://df7ochw5qh8j1" path="res://scripts/camera_rotation_lock.gd" id="2_224t7"]
 [ext_resource type="PackedScene" uid="uid://2qi4d1medwyf" path="res://scenes/SnowballDamageParticles.tscn" id="2_dtlfo"]
+[ext_resource type="ArrayMesh" uid="uid://b8lhu2k5i1uwc" path="res://assets/models/SM_Generic_Mountains_Snow_01.obj" id="4_2dg3m"]
+[ext_resource type="Texture2D" uid="uid://bm8sllbdn7opy" path="res://assets/textures/PolygonFarm_Texture_01_A.png" id="5_snkwp"]
 
 [sub_resource type="Gradient" id="Gradient_dtlfo"]
 offsets = PackedFloat32Array(0, 0.501712, 1)
@@ -25,6 +27,22 @@ material = SubResource("StandardMaterial3D_1uxb6")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_224t7"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dtlfo"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_dtlfo"]
+material = SubResource("StandardMaterial3D_dtlfo")
+radius = 0.08
+height = 0.16
+is_hemisphere = true
+
+[sub_resource type="Gradient" id="Gradient_2dg3m"]
+colors = PackedColorArray(0.68222, 0.715732, 0.721796, 1, 0.687215, 0.687215, 0.687215, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kqonc"]
+albedo_color = Color(0.57098, 0.57098, 0.57098, 1)
+albedo_texture = ExtResource("5_snkwp")
+
 [node name="Snowball" type="Node3D"]
 
 [node name="Rigidbody" type="RigidBody3D" parent="." groups=["Player"]]
@@ -39,7 +57,39 @@ mesh = SubResource("SphereMesh_ajoi3")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Rigidbody"]
 shape = SubResource("SphereShape3D_224t7")
 
+[node name="CPUParticles3D" type="CPUParticles3D" parent="Rigidbody"]
+amount = 32
+lifetime = 1.4
+speed_scale = 0.7
+mesh = SubResource("SphereMesh_dtlfo")
+particle_flag_align_y = true
+direction = Vector3(0, 5, -10)
+spread = 30.0
+gravity = Vector3(0, -4, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 8.0
+color = Color(0.707156, 0.692888, 0.703799, 1)
+color_ramp = SubResource("Gradient_2dg3m")
+
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.846639, 0.532167, 0, -0.532167, 0.846639, 0.37, 5.4851, 4.22373)
+transform = Transform3D(1, 0, 0, 0, 0.72228, 0.691601, 0, -0.691601, 0.72228, 0, 6.05846, 4.4107)
 current = true
+near = 1.5
 script = ExtResource("2_224t7")
+
+[node name="SmGenericMountainsSnow01" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(0.05, 0, 0, 0, 0.072228, -0.0345801, 0, 0.0691602, 0.036114, -30.9745, 73.784, -251.086)
+mesh = ExtResource("4_2dg3m")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kqonc")
+
+[node name="SmGenericMountainsSnow02" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(0.06, 0, 0, 0, 0.0934706, -0.0446687, 0, 0.104227, 0.0400588, -127.582, 38.7938, -260.521)
+mesh = ExtResource("4_2dg3m")
+surface_material_override/0 = SubResource("StandardMaterial3D_kqonc")
+
+[node name="SmGenericMountainsSnow03" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(0.05, 0, 0, 0, 0.072228, -0.0345801, 0, 0.0691602, 0.036114, 77.3844, 19.9056, -168.267)
+mesh = ExtResource("4_2dg3m")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kqonc")

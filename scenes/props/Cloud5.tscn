@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgo1kqrrunjfo"]
+
+[ext_resource type="ArrayMesh" uid="uid://bjjyum8kt5vjq" path="res://assets/models/SM_Generic_Cloud_05.obj" id="1_8dagw"]
+
+[node name="Cloud5" type="Node3D"]
+
+[node name="SmGenericCloud05" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
+mesh = ExtResource("1_8dagw")

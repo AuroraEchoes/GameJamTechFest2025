@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://da3r8egurnvdb"]
+[gd_scene load_steps=61 format=3 uid="uid://da3r8egurnvdb"]
 
 [ext_resource type="Script" uid="uid://rbryramdaow7" path="res://scripts/terrain_chunk.gd" id="1_ee0uk"]
 [ext_resource type="Script" uid="uid://gfj3tg4qadot" path="res://scripts/terrain_obstacle.gd" id="2_34gou"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://m0w1ce7qtve" path="res://scenes/props/Barrel.tscn" id="21_dummg"]
 [ext_resource type="PackedScene" uid="uid://b5fbenvl6tqtr" path="res://scenes/props/Propane.tscn" id="22_7hshg"]
 [ext_resource type="PackedScene" uid="uid://cjixiygk20ta4" path="res://scenes/props/Chair.tscn" id="23_8exmi"]
+[ext_resource type="Shader" uid="uid://cwetj218kp5vy" path="res://scripts/shaders/cliffs.gdshader" id="24_dummg"]
 [ext_resource type="Script" uid="uid://dhwtjbe422djs" path="res://scripts/canyon_wall.gd" id="24_yr4gp"]
 
 [sub_resource type="Resource" id="Resource_ujd5a"]
@@ -300,54 +301,79 @@ metadata/_custom_type_script = "uid://gfj3tg4qadot"
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_yr4gp"]
 size = Vector2(50, 50)
-subdivide_width = 25
-subdivide_depth = 25
+subdivide_width = 50
+subdivide_depth = 50
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tq175"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7hshg"]
+fractal_type = 0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8exmi"]
-albedo_color = Color(0.722084, 0.799872, 0.86687, 1)
-normal_texture = SubResource("NoiseTexture2D_tq175")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vd5x2"]
+noise = SubResource("FastNoiseLite_7hshg")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3e8rx"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rwufl"]
+noise = SubResource("FastNoiseLite_3e8rx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dummg"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("24_dummg")
+shader_parameter/noise = SubResource("NoiseTexture2D_rwufl")
+shader_parameter/noise_strength = 0.1
+shader_parameter/color_noise = SubResource("NoiseTexture2D_vd5x2")
+shader_parameter/number_bands = 4
+shader_parameter/rotation_degrees = 0.0
+shader_parameter/color_a = Color(0.936265, 0.936265, 0.936265, 1)
+shader_parameter/color_b = Color(0.616788, 0.785801, 0.768447, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yr4gp"]
 size = Vector3(50, 0.2, 50)
 
-[sub_resource type="Gradient" id="Gradient_yr4gp"]
-offsets = PackedFloat32Array(0, 0.498288, 1)
-colors = PackedColorArray(0.133196, 0.133196, 0.133196, 1, 0.0760225, 0.0768314, 0.0790459, 1, 0.279524, 0.172824, 0.107337, 1)
-
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_dummg"]
-noise_type = 5
-fractal_type = 2
-domain_warp_enabled = true
+fractal_type = 0
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7hshg"]
-color_ramp = SubResource("Gradient_yr4gp")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3e8rx"]
 noise = SubResource("FastNoiseLite_dummg")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vd5x2"]
-albedo_texture = SubResource("NoiseTexture2D_7hshg")
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vd5x2"]
+noise_type = 5
+frequency = 0.0037
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7hshg"]
+noise = SubResource("FastNoiseLite_vd5x2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3e8rx"]
+render_priority = 0
+shader = ExtResource("24_dummg")
+shader_parameter/noise = SubResource("NoiseTexture2D_7hshg")
+shader_parameter/noise_strength = 2.0
+shader_parameter/color_noise = SubResource("NoiseTexture2D_3e8rx")
+shader_parameter/number_bands = 6
+shader_parameter/rotation_degrees = 0.0
+shader_parameter/color_a = Color(0.124083, 0.124083, 0.124083, 1)
+shader_parameter/color_b = Color(0.243217, 0.138812, 0.0645145, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_hdqcb"]
-material = SubResource("StandardMaterial3D_vd5x2")
-size = Vector2(20, 50)
-subdivide_width = 25
-subdivide_depth = 25
+material = SubResource("ShaderMaterial_3e8rx")
+size = Vector2(20.1, 50)
+subdivide_width = 20
+subdivide_depth = 50
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sdmwy"]
 size = Vector3(20, 1, 50)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tq175"]
-albedo_color = Color(0.189799, 0.181126, 0.140085, 1)
-normal_texture = SubResource("NoiseTexture2D_tq175")
-
-[node name="TerrainChunk" type="Node3D"]
+[node name="TerrainChunk" type="Node3D" node_paths=PackedStringArray("left_wall", "right_wall")]
 script = ExtResource("1_ee0uk")
 obstacles = Array[ExtResource("2_34gou")]([SubResource("Resource_ujd5a"), SubResource("Resource_rpluw"), SubResource("Resource_6ui3r"), SubResource("Resource_a21ai"), SubResource("Resource_v0rx5"), SubResource("Resource_dhhup"), SubResource("Resource_wg48j"), SubResource("Resource_aat7g"), SubResource("Resource_qr1hn"), SubResource("Resource_wfuk4"), SubResource("Resource_ina8b"), SubResource("Resource_2vs8l"), SubResource("Resource_yo44b"), SubResource("Resource_tsp3q"), SubResource("Resource_8exmi"), SubResource("Resource_vd5x2"), SubResource("Resource_3e8rx"), SubResource("Resource_rwufl"), SubResource("Resource_t1ng8"), SubResource("Resource_fl315"), SubResource("Resource_t2cac")])
+x_sides_margin = 2.0
+left_wall = NodePath("LeftWall")
+right_wall = NodePath("RightWall")
 
 [node name="Terrain" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00941849, 0, 0)
 mesh = SubResource("PlaneMesh_yr4gp")
-surface_material_override/0 = SubResource("StandardMaterial3D_8exmi")
+surface_material_override/0 = SubResource("ShaderMaterial_dummg")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Terrain"]
 collision_layer = 3
@@ -357,11 +383,12 @@ collision_mask = 3
 shape = SubResource("BoxShape3D_yr4gp")
 
 [node name="LeftWall" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.173648, -0.984808, 0, 0.984808, 0.173648, 0, 0, 0, 1, 26.5, 9, 0)
+transform = Transform3D(0.34202, -0.939693, 0, 0.939693, 0.34202, 0, 0, 0, 1, 27, 9, 0)
 mesh = SubResource("PlaneMesh_hdqcb")
 script = ExtResource("24_yr4gp")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="LeftWall"]
+transform = Transform3D(1, 0, 0, 0, 0.999391, 0.0348995, 0, -0.0348995, 0.999391, 0, 0, 0)
 collision_layer = 3
 collision_mask = 3
 
@@ -369,18 +396,20 @@ collision_mask = 3
 shape = SubResource("BoxShape3D_sdmwy")
 
 [node name="Area3D" type="Area3D" parent="LeftWall"]
+transform = Transform3D(1, 0, 0, 0, 0.999391, 0.0348995, 0, -0.0348995, 0.999391, 0, 0, 0)
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="LeftWall/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.444092, 0)
 shape = SubResource("BoxShape3D_sdmwy")
 
 [node name="RightWall" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.173648, 0.984808, 0, -0.984808, 0.173648, 0, 0, 0, 1, -26.5, 9, 0)
+transform = Transform3D(0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0, 0, 1, -27, 9, 0)
 mesh = SubResource("PlaneMesh_hdqcb")
-surface_material_override/0 = SubResource("StandardMaterial3D_tq175")
+skeleton = NodePath("../LeftWall")
 script = ExtResource("24_yr4gp")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="RightWall"]
+transform = Transform3D(1, 0, 0, 0, 0.999391, 0.0348995, 0, -0.0348995, 0.999391, 0, 0, 0)
 collision_layer = 3
 collision_mask = 3
 
@@ -388,6 +417,7 @@ collision_mask = 3
 shape = SubResource("BoxShape3D_sdmwy")
 
 [node name="Area3D" type="Area3D" parent="RightWall"]
+transform = Transform3D(1, 0, 0, 0, 0.999391, 0.0348995, 0, -0.0348995, 0.999391, 0, 0, 0)
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="RightWall/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.444092, 0)

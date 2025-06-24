@@ -25,8 +25,12 @@ _data = [Vector2(0.00168634, 0.267893), 0.0, 0.0, 0, 0, Vector2(0.996627, 0.3309
 point_count = 2
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wu28h"]
+sky_top_color = Color(0.313287, 0.445018, 0.688534, 1)
 sky_horizon_color = Color(0.470241, 0.69486, 0.896657, 1)
+sky_curve = 1.81886
+ground_bottom_color = Color(0.317436, 0.402828, 0.44296, 1)
 ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_curve = 0.0857419
 
 [sub_resource type="Sky" id="Sky_ug7ey"]
 sky_material = SubResource("ProceduralSkyMaterial_wu28h")

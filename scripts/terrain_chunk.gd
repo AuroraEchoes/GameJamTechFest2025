@@ -5,6 +5,9 @@ class_name TerrainChunk
 @export var min_obstacles_per_chunk: int = 5
 @export var x_sides_margin: float = 1.0
 @onready var terrain_base: MeshInstance3D = $"Terrain"
+@export var left_wall: MeshInstance3D
+@export var right_wall: MeshInstance3D
+@export var texture_offset_per_chunk: Vector3 = Vector3(384, 0, 0)
 var terrain_size: Vector2
 
 func _ready() -> void:
@@ -28,6 +31,9 @@ func select_valid_obstacles(biomes: Array[HillManager.Biome]) -> Array[int]:
 	
 
 func generate(hill_params: HillManager, biomes: Array[HillManager.Biome]) -> void:
+	# just shoot me here mahyaps
+	((left_wall.mesh as PlaneMesh).material as ShaderMaterial).set_shader_parameter("shader_parameter/noise:noise:offset:x", texture_offset_per_chunk * hill_params.chunks_generated_count)
+	((right_wall.mesh as PlaneMesh).material as ShaderMaterial).set_shader_parameter("shader_parameter/noise:noise:offset:x", texture_offset_per_chunk * hill_params.chunks_generated_count)
 	# (Claimed position centre, scale (leave free radius))
 	var claimed_positions: Dictionary[Vector3, float] = {}
 	# Don’t ask me to explain this
@@ -62,6 +68,7 @@ func generate(hill_params: HillManager, biomes: Array[HillManager.Biome]) -> voi
 		scene.position = spawn_pos
 		scene.set_base_volume(obstacle.base_volume)
 		scene.rotate_y(randf_range(0, TAU))
+		scene.rotate_x(-deg_to_rad(hill_params.angle) * 2.0 / 3.0)
 		scene.set_uniform_scale(obst_scale)
 		add_child(scene)
 	

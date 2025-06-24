@@ -15,11 +15,11 @@ func scene_root() -> Node:
 # the insanity is getting to me
 func again():
 	var scn_root = scene_root()
-	scn_root.get_parent().add_child((load("res://scenes/Hill.tscn") as PackedScene).instantiate())
+	scn_root.get_parent().add_child(GameManager.hill_scene.instantiate())
 	scn_root.queue_free()
 	GameManager.game_restart_event.emit()
 
 func main_menu():
 	var scn_root = scene_root()
-	scn_root.get_parent().add_child((load("res://scenes/MainMenu.tscn") as PackedScene).instantiate())
+	scn_root.get_parent().add_child(GameManager.main_menu_scene.instantiate())
 	scn_root.queue_free()

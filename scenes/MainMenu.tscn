@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://wnpjlxkryraa"]
+[gd_scene load_steps=11 format=3 uid="uid://wnpjlxkryraa"]
 
 [ext_resource type="Script" uid="uid://fnihjnm28upm" path="res://scripts/ui/main_menu_buttons.gd" id="1_826wr"]
 [ext_resource type="Script" uid="uid://7nyo426p3x5" path="res://scripts/ui/main_menu_bg_scroll.gd" id="1_yqorp"]
 [ext_resource type="FontFile" uid="uid://bepqu1vl3b4b5" path="res://assets/fonts/PublicSans-BoldItalic.ttf" id="2_2wh52"]
-[ext_resource type="PackedScene" uid="uid://bsqhw71hvla0j" path="res://scenes/Hill.tscn" id="2_ucygd"]
 [ext_resource type="PackedScene" uid="uid://ccauthuq6s0mp" path="res://scenes/TutorialManager.tscn" id="3_mipys"]
 [ext_resource type="FontFile" uid="uid://plf8r8anhu6l" path="res://assets/fonts/RubikWetPaint-Regular.ttf" id="3_ow34m"]
 [ext_resource type="Script" uid="uid://dnp1m8y8d2g6a" path="res://scripts/ui/snowball_text_animation.gd" id="4_ow34m"]
@@ -32,7 +31,6 @@ script = ExtResource("1_826wr")
 tutorial_button = NodePath("TextureRect/MarginContainer/Options/Tutorial")
 play_button = NodePath("TextureRect/MarginContainer/Options/Play")
 quit_button = NodePath("TextureRect/MarginContainer/Options/Quit")
-hill_scene = ExtResource("2_ucygd")
 tutorial_manager = ExtResource("3_mipys")
 
 [node name="TextureRect" type="TextureRect" parent="."]

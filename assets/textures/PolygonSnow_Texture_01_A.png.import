@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://qlrwv2akbhid"
 path.s3tc="res://.godot/imported/PolygonSnow_Texture_01_A.png-c39650596771d27bd6a4e07a3d4f9129.s3tc.ctex"
+path.etc2="res://.godot/imported/PolygonSnow_Texture_01_A.png-c39650596771d27bd6a4e07a3d4f9129.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/PolygonSnow_Texture_01_A.png"
-dest_files=["res://.godot/imported/PolygonSnow_Texture_01_A.png-c39650596771d27bd6a4e07a3d4f9129.s3tc.ctex"]
+dest_files=["res://.godot/imported/PolygonSnow_Texture_01_A.png-c39650596771d27bd6a4e07a3d4f9129.s3tc.ctex", "res://.godot/imported/PolygonSnow_Texture_01_A.png-c39650596771d27bd6a4e07a3d4f9129.etc2.ctex"]
 
 [params]
 

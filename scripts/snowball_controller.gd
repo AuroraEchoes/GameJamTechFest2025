@@ -12,7 +12,7 @@ var curr_radius: float
 @export var min_volume: float = 0.1
 @export var max_volume: float = 50.0
 @export var size_change_speed: float = 0.25
-@export var collision_particles: PackedScene
+var collision_particles: PackedScene = preload("res://scenes/SnowballDamageParticles.tscn")
 @onready var mesh: MeshInstance3D = $"MeshInstance3D"
 @onready var collision_shape: CollisionShape3D = $"CollisionShape3D"
 

@@ -6,6 +6,8 @@ signal game_restart_event
 var _game_start_time: int
 var player_position: Vector3
 var score: float
+@onready var hill_scene: PackedScene = preload("res://scenes/Hill.tscn")
+@onready var main_menu_scene: PackedScene = preload("res://scenes/MainMenu.tscn")
 
 func _ready() -> void:
 	game_restart_event.connect(_reset)

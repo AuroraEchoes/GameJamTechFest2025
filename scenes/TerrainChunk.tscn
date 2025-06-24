@@ -383,7 +383,7 @@ collision_mask = 3
 shape = SubResource("BoxShape3D_yr4gp")
 
 [node name="LeftWall" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.34202, -0.939693, 0, 0.939693, 0.34202, 0, 0, 0, 1, 27, 9, 0)
+transform = Transform3D(0.173648, -0.984808, 0, 0.984808, 0.173648, 0, 0, 0, 1, 27, 9, 0)
 mesh = SubResource("PlaneMesh_hdqcb")
 script = ExtResource("24_yr4gp")
 
@@ -403,7 +403,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.444092, 0)
 shape = SubResource("BoxShape3D_sdmwy")
 
 [node name="RightWall" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0, 0, 1, -27, 9, 0)
+transform = Transform3D(0.173648, 0.984808, 0, -0.984808, 0.173648, 0, 0, 0, 1, -27, 9, 0)
 mesh = SubResource("PlaneMesh_hdqcb")
 skeleton = NodePath("../LeftWall")
 script = ExtResource("24_yr4gp")
